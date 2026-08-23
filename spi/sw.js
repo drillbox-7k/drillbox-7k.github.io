@@ -1,6 +1,7 @@
 /* SPI非言語ドリル Service Worker
    問題を追加・修正して配布するときは CACHE_VER の数字を上げる */
-var CACHE_VER = 'spihigengo-v3'; /* 2026-08-10 v1.1 学習モード追加＋ホーム画面アイコン */
+var CACHE_VER = 'spihigengo-v4'; /* 2026-08-23 同居アプリのキャッシュを消さないよう修正 */
+var CACHE_PREFIX = 'spihigengo-';
 var ASSETS = ['./', './index.html', './manifest.json', './apple-touch-icon.png'];
 
 self.addEventListener('install', function (e) {
@@ -10,11 +11,15 @@ self.addEventListener('install', function (e) {
   );
 });
 
+/* 【重要】消すのは、このアプリ自身の古いキャッシュだけに限る。
+   drillbox-7k.github.io には /bl2/（ビジ法2級ドリル）が同居しており、
+   接頭辞で絞らないと、更新のたびに相手のオフライン用キャッシュまで消してしまう */
 self.addEventListener('activate', function (e) {
   e.waitUntil(
     caches.keys().then(function (keys) {
-      return Promise.all(keys.filter(function (k) { return k !== CACHE_VER; })
-        .map(function (k) { return caches.delete(k); }));
+      return Promise.all(keys.filter(function (k) {
+        return k.indexOf(CACHE_PREFIX) === 0 && k !== CACHE_VER;
+      }).map(function (k) { return caches.delete(k); }));
     }).then(function () { return self.clients.claim(); })
   );
 });
