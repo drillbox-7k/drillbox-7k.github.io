@@ -1,6 +1,6 @@
 /* SPI非言語ドリル Service Worker
    問題を追加・修正して配布するときは CACHE_VER の数字を上げる */
-var CACHE_VER = 'spihigengo-v4'; /* 2026-08-23 同居アプリのキャッシュを消さないよう修正 */
+var CACHE_VER = 'spihigengo-v5'; /* 2026-08-23 v1.2（160問・なぞり36問・新3型）*/
 var CACHE_PREFIX = 'spihigengo-';
 var ASSETS = ['./', './index.html', './manifest.json', './apple-touch-icon.png'];
 
