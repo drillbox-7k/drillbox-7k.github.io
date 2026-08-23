@@ -1,6 +1,7 @@
 /* ビジ法2級ドリル Service Worker
    更新時はCACHE_VERの数字を上げて配布する */
-var CACHE_VER = 'bizlaw2-v3'; /* 2026-07-05 AI補強115問追加・全382問版 */
+var CACHE_VER = 'bizlaw2-v4'; /* 2026-08-23 同居アプリのキャッシュを消さないよう修正 */
+var CACHE_PREFIX = 'bizlaw2-';
 var ASSETS = ['./', './index.html', './manifest.json', './apple-touch-icon.png'];
 
 self.addEventListener('install', function (e) {
@@ -10,11 +11,15 @@ self.addEventListener('install', function (e) {
   );
 });
 
+/* 【重要】消すのは、このアプリ自身の古いキャッシュだけに限る。
+   drillbox-7k.github.io には /spi/（SPI非言語ドリル）が同居しており、
+   接頭辞で絞らないと、更新のたびに相手のオフライン用キャッシュまで消してしまう */
 self.addEventListener('activate', function (e) {
   e.waitUntil(
     caches.keys().then(function (keys) {
-      return Promise.all(keys.filter(function (k) { return k !== CACHE_VER; })
-        .map(function (k) { return caches.delete(k); }));
+      return Promise.all(keys.filter(function (k) {
+        return k.indexOf(CACHE_PREFIX) === 0 && k !== CACHE_VER;
+      }).map(function (k) { return caches.delete(k); }));
     }).then(function () { return self.clients.claim(); })
   );
 });
