@@ -1,0 +1,12 @@
+{
+  "name": "ビジ法2級ドリル",
+  "short_name": "ビジ法2級",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f5f9",
+  "theme_color": "#3b5bdb",
+  "icons": [
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
