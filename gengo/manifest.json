@@ -1,0 +1,13 @@
+{
+  "name": "SPI言語 本編ドリル",
+  "short_name": "言語",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FBFAF7",
+  "theme_color": "#2A4A7B",
+  "lang": "ja",
+  "icons": [
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
