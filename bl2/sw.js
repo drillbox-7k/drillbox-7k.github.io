@@ -1,6 +1,6 @@
 /* ビジ法2級ドリル Service Worker
    更新時はCACHE_VERの数字を上げて配布する */
-var CACHE_VER = 'bizlaw2-v4'; /* 2026-08-23 同居アプリのキャッシュを消さないよう修正 */
+var CACHE_VER = 'bizlaw2-v5'; /* 2026-09-13 一覧へ戻るリンクを追加。内容は382問のまま（接頭辞で絞る作りは維持）*/
 var CACHE_PREFIX = 'bizlaw2-';
 var ASSETS = ['./', './index.html', './manifest.json', './apple-touch-icon.png'];
 
