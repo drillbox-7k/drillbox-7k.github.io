@@ -1,6 +1,6 @@
 /* SPI言語 本編ドリル Service Worker
    問題を追加・修正して配布するときは CACHE_VER の数字を上げる */
-var CACHE_VER = 'spigengo-v1'; /* 2026-09-12 honpen-v3（83問・肢別解説・長文2問）*/
+var CACHE_VER = 'spigengo-v2'; /* 2026-09-13 一覧へ戻るリンクを追加。内容は honpen-v3（83問・肢別解説・長文2問）*/
 var CACHE_PREFIX = 'spigengo-';
 var ASSETS = ['./', './index.html', './manifest.json', './apple-touch-icon.png'];
 
