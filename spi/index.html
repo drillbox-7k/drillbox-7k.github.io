@@ -6,26 +6,26 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="非言語ドリル">
-<meta name="theme-color" content="#2f6f4e">
+<meta name="theme-color" content="#12161a">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>SPI非言語ドリル</title>
 <style>
-:root{--acc:#2f6f4e;--acc2:#e8f3ec;--bg:#f4f6f5;--card:#fff;--tx:#22242c;--sub:#79817d;
---ok:#12905f;--okbg:#e7f6ef;--ng:#d6455d;--ngbg:#fdecef;--line:#e5e9e7;--warn:#b06c11;--warnbg:#fdf3e7}
+:root{--acc:#5fbf8f;--acc2:#1d3329;--bg:#12161a;--card:#1b2126;--ins:#161b20;--elev:#232b31;
+--tx:#e6e9e7;--sub:#9aa5a0;--track:#2a3238;
+--ok:#4cc78e;--okbg:#15302a;--ng:#f0768c;--ngbg:#36202a;--line:#2c353b;--warn:#e3a44a;--warnbg:#33291a}
+html{color-scheme:dark}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
 background:var(--bg);color:var(--tx);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 #app{max-width:540px;margin:0 auto;padding:12px 14px calc(78px + env(safe-area-inset-bottom))}
 header{display:flex;align-items:baseline;justify-content:space-between;padding:6px 2px 10px}
-.totop{display:inline-block;font-size:12px;color:var(--sub);text-decoration:none;padding:4px 2px 0}
-.totop:active{opacity:.55}
 header h1{font-size:17px;margin:0;color:var(--acc)}
 header span{font-size:12px;color:var(--sub)}
-.card{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 1px 3px rgba(20,24,40,.06);margin-bottom:12px}
+.card{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.45);margin-bottom:12px}
 .card h2{font-size:13.5px;margin:0 0 10px;color:var(--sub);font-weight:600}
 .big-num{font-size:38px;font-weight:800;line-height:1.1}
 .big-num small{font-size:14px;font-weight:600;color:var(--sub)}
@@ -33,7 +33,7 @@ header span{font-size:12px;color:var(--sub)}
 .btn{display:block;width:100%;border:none;border-radius:12px;min-height:50px;font-size:15.5px;
 font-weight:700;cursor:pointer;font-family:inherit;padding:10px 12px}
 .btn:disabled{opacity:.45}
-.btn-pri{background:var(--acc);color:#fff}
+.btn-pri{background:var(--acc);color:#0f1417}
 .btn-ghost{background:var(--acc2);color:var(--acc)}
 .btn-mini{min-height:42px;font-size:13.5px;border-radius:10px}
 .btn+.btn{margin-top:9px}
@@ -42,10 +42,10 @@ font-weight:700;cursor:pointer;font-family:inherit;padding:10px 12px}
 .stats b{display:block;font-size:20px}.stats span{font-size:11px;color:var(--sub)}
 .pill{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:99px;
 background:var(--acc2);color:var(--acc);margin:0 6px 6px 0}
-.pill.lv{background:#eef0f4;color:#5b6472}
+.pill.lv{background:var(--elev);color:var(--sub)}
 .pill.ap{background:var(--warnbg);color:var(--warn)}
 .q-text{font-size:16.5px;line-height:1.85;margin:12px 0 16px;white-space:pre-wrap}
-.ch{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);
+.ch{display:block;width:100%;text-align:left;background:var(--elev);border:1.5px solid var(--line);
 border-radius:12px;padding:13px 14px;font-size:15.5px;font-family:inherit;margin-bottom:9px;
 cursor:pointer;line-height:1.6;color:var(--tx)}
 .ch:active{background:var(--acc2)}
@@ -57,7 +57,7 @@ cursor:pointer;line-height:1.6;color:var(--tx)}
 .banner.ok{background:var(--okbg);color:var(--ok)}
 .banner.ng{background:var(--ngbg);color:var(--ng)}
 .banner.to{background:var(--warnbg);color:var(--warn)}
-.exp{background:#fafbfa;border:1px solid var(--line);border-radius:12px;padding:13px;font-size:14px;line-height:1.8}
+.exp{background:var(--ins);border:1px solid var(--line);border-radius:12px;padding:13px;font-size:14px;line-height:1.8}
 .exp h4{margin:0 0 6px;font-size:12.5px;color:var(--sub)}
 .exp ol{margin:0 0 12px;padding-left:1.3em}
 .exp li{margin-bottom:5px}
@@ -69,38 +69,41 @@ cursor:pointer;line-height:1.6;color:var(--tx)}
 table.dat{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0 4px}
 table.dat caption{font-size:12.5px;color:var(--sub);text-align:left;padding-bottom:5px}
 table.dat th,table.dat td{border:1px solid var(--line);padding:6px 8px;text-align:right}
-table.dat th{background:#f3f6f4;font-weight:700;text-align:center}
+table.dat th{background:var(--ins);font-weight:700;text-align:center}
 table.dat td:first-child,table.dat th:first-child{text-align:left}
 .drill-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .drill-top .cnt{font-size:13px;color:var(--sub);font-weight:700}
 .link-btn{background:none;border:none;color:var(--acc);font-size:13.5px;font-weight:700;padding:6px 2px;cursor:pointer;font-family:inherit}
-.tbar{height:6px;background:#e6eae8;border-radius:99px;overflow:hidden;margin:0 0 10px}
+.tbar{height:6px;background:var(--track);border-radius:99px;overflow:hidden;margin:0 0 10px}
 .tbar i{display:block;height:100%;background:var(--acc);border-radius:99px;transition:width .5s linear}
 .tbar i.warn{background:#e8a13c}.tbar i.over{background:var(--ng)}
-.bar{height:8px;background:#eaeeec;border-radius:99px;overflow:hidden;margin:7px 0 5px}
+.bar{height:8px;background:var(--track);border-radius:99px;overflow:hidden;margin:7px 0 5px}
 .bar i{display:block;height:100%;background:var(--acc);border-radius:99px}
 .bar i.low{background:var(--ng)}.bar i.mid{background:#e8a13c}
 .wcard{margin-bottom:12px;padding-bottom:11px;border-bottom:1px solid var(--line)}
 .wcard:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .wcard .t{display:flex;justify-content:space-between;align-items:baseline;font-size:14.5px;font-weight:700;gap:8px}
 .wcard .nums{font-size:11.5px;color:var(--sub);margin-top:3px}
-.wcard .cue{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:5px;background:#fafbfa;border-radius:8px;padding:7px 9px}
+.wcard .cue{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:5px;background:var(--ins);border-radius:8px;padding:7px 9px}
 textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:10px;padding:10px;
-font-size:12px;font-family:ui-monospace,monospace;background:#fafbfa;color:var(--tx)}
+font-size:12px;font-family:ui-monospace,monospace;background:var(--ins);color:var(--tx)}
 .msg{font-size:13px;font-weight:700;margin-top:8px;min-height:18px}
 .msg.ok{color:var(--ok)}.msg.ng{color:var(--ng)}
-nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;border-top:1px solid var(--line);
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--card);border-top:1px solid var(--line);
 padding-bottom:env(safe-area-inset-bottom);z-index:5;max-width:540px;margin:0 auto}
 nav button{flex:1;padding:13px 0 11px;font-size:13px;color:var(--sub);background:none;border:none;font-weight:700;cursor:pointer;font-family:inherit}
 nav button.on{color:var(--acc)}
-footer{text-align:center;font-size:11px;color:#a6ada9;padding:6px 0 2px;line-height:1.6}
+nav a.navout{flex:1;padding:13px 0 11px;font-size:13px;color:var(--sub);font-weight:700;
+text-align:center;text-decoration:none;border-left:1px solid var(--line)}
+nav a.navout:active{color:var(--acc)}
+footer{text-align:center;font-size:11px;color:var(--sub);padding:6px 0 2px;line-height:1.6}
 /* 学習 */
 .step-lead{font-size:20px;font-weight:800;margin:2px 0 8px;line-height:1.4}
 .lrow{display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid var(--line);cursor:pointer}
 .lrow:last-child{border-bottom:none}
 .chk{flex:none;width:26px;height:26px;border-radius:99px;border:1.5px solid var(--line);
-background:#fff;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
-.chk.on{background:var(--acc);border-color:var(--acc)}
+background:var(--elev);color:var(--elev);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.chk.on{background:var(--acc);border-color:var(--acc);color:#0f1417}
 .ltitle{flex:1;font-size:15px;font-weight:700;line-height:1.5}
 .lmeta{flex:none;font-size:11px;color:var(--sub)}
 .ltitle-big{font-size:19px;margin:0 0 10px;color:var(--acc)}
@@ -109,32 +112,32 @@ background:#fff;color:#fff;font-size:11px;font-weight:800;display:flex;align-ite
 .tool{display:flex;gap:10px;padding:8px 0;font-size:14px;line-height:1.75;align-items:baseline}
 .tool b{flex:none;min-width:6.5em;font-size:13px;color:var(--acc)}
 .tool span{flex:1}
-.lex{font-size:15.5px;line-height:1.8;background:#fafbfa;border:1px solid var(--line);
+.lex{font-size:15.5px;line-height:1.8;background:var(--ins);border:1px solid var(--line);
 border-radius:10px;padding:12px 13px;white-space:pre-wrap}
 ol.lsteps{margin:12px 0 0;padding-left:1.4em;font-size:14.5px}
 ol.lsteps li{margin-bottom:9px;line-height:1.75}
 ol.lsteps b{display:block}
 ol.lsteps span{display:block;font-family:ui-monospace,"SF Mono",monospace;font-size:14px;
-background:#f3f6f4;border-radius:7px;padding:5px 9px;margin-top:4px}
+background:var(--ins);border-radius:7px;padding:5px 9px;margin-top:4px}
 .lans{margin-top:12px;background:var(--okbg);color:var(--ok);border-radius:10px;
 padding:10px 13px;font-size:16px;font-weight:800}
 .lmiss{font-size:13.5px;line-height:1.8;background:var(--ngbg);border-radius:9px;padding:9px 11px;margin-bottom:8px}
-.askbox{font-size:15.5px;font-weight:700;line-height:1.7;background:var(--warnbg);color:#8a5410;
+.askbox{font-size:15.5px;font-weight:700;line-height:1.7;background:var(--warnbg);color:var(--warn);
 border-radius:10px;padding:11px 13px;margin:0 0 12px}
 </style>
 </head>
 <body>
 <div id="app">
-  <a class="totop" href="../">← 学習ドリル一覧</a>
   <header><h1>SPI非言語ドリル</h1><span id="hd-date"></span></header>
   <main id="main"></main>
   <footer id="foot"></footer>
 </div>
 <nav id="nav">
-  <button data-v="home" class="on">ホーム</button>
+  <button data-v="home" class="on">メニュー</button>
   <button data-v="learn">学習</button>
   <button data-v="kata">型の地図</button>
   <button data-v="data">データ</button>
+  <a class="navout" href="../">ドリル一覧</a>
 </nav>
 <script>
 //__JS_START__
